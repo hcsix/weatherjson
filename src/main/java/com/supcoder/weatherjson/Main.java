@@ -1,7 +1,6 @@
 package com.supcoder.weatherjson;
 
 import com.supcoder.weatherjson.comparator.AreaComparator;
-import com.supcoder.weatherjson.comparator.IdComparator;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
