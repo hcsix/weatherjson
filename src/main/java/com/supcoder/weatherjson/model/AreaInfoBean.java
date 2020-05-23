@@ -1,4 +1,6 @@
-package com.supcoder.weatherjson;
+package com.supcoder.weatherjson.model;
+
+import com.supcoder.weatherjson.utils.StringUtils;
 
 /**
  * AreaInfoBean

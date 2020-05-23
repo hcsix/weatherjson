@@ -1,6 +1,6 @@
 package com.supcoder.weatherjson.comparator;
 
-import com.supcoder.weatherjson.AreaInfoBean;
+import com.supcoder.weatherjson.model.AreaInfoBean;
 
 import java.util.Comparator;
 

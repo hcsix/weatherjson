@@ -1,4 +1,4 @@
-package com.supcoder.weatherjson;
+package com.supcoder.weatherjson.utils;
 
 /**
  * StringUtils

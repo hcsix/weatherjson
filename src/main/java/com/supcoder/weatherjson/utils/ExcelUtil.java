@@ -1,4 +1,4 @@
-package com.supcoder.weatherjson;
+package com.supcoder.weatherjson.utils;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
