@@ -119,23 +119,28 @@ public class AreaUtil {
                     for (int i = 0; i < c.size(); i++) {
                         AreaInfoBean a = c.get(i);
                         if (j==0 && i == 0){
-                            System.out.println("\t\t\"province\":" + a.getProvince() + ",");
+                            System.out.println("\t\t\"province\":\"" + a.getProvince() + "\",");
                             System.out.println("\t\t\"city\":[");
                         }
 
                         if (i == 0) {
                             System.out.println("\t\t\t{");
-                            System.out.println("\t\t\t\t\"name\":" + a.getCity() + ",");
+                            System.out.println("\t\t\t\t\"name\":\"" + a.getCity() + "\",");
                             System.out.println("\t\t\t\t\"area\":[");
                         }
-                        System.out.println("\t\t\t\t\t"+a.jsonData()+",");
                         if (i == c.size() - 1) {
+                            System.out.println("\t\t\t\t\t"+a.jsonData());
                             System.out.println("\t\t\t\t]");
-                            System.out.println("\t\t\t},");
+                            if (j == p.size()-1){
+                                System.out.println("\t\t\t}");
+                                System.out.println("\t\t]");
+                            }else {
+                                System.out.println("\t\t\t},");
+                            }
+                        }else {
+                            System.out.println("\t\t\t\t\t"+a.jsonData()+",");
                         }
-                        if (i == c.size() - 1 && j == p.size()-1){
-                            System.out.println("\t\t]");
-                        }
+
                     }
                 }
 
