@@ -83,14 +83,68 @@ public class AreaUtil {
                 }
             }
 
-            for (List<AreaInfoBean> cityList : provinceList) {
-                System.out.println("---------");
 
-                for (AreaInfoBean bean : cityList) {
-                    System.out.println(bean.toString());
+            List<List<List<AreaInfoBean>>> areaList = new ArrayList<List<List<AreaInfoBean>>>();
+            for (List<AreaInfoBean> cityList : provinceList) {
+                List<List<AreaInfoBean>> cList = new ArrayList<List<AreaInfoBean>>();
+                for (int i = 0; i < cityList.size(); i++) {
+                    AreaInfoBean curArea = cityList.get(i);
+                    if (i == 0) {
+                        List<AreaInfoBean> aList = new ArrayList<AreaInfoBean>();
+                        aList.add(curArea);
+                        cList.add(aList);
+                    } else {
+                        AreaInfoBean preArea = cityList.get(i - 1);
+                        if (preArea.getCity().equals(curArea.getCity())) {
+                            cList.get(cList.size() - 1).add(curArea);
+                        } else {
+                            List<AreaInfoBean> aList = new ArrayList<AreaInfoBean>();
+                            aList.add(curArea);
+                            cList.add(aList);
+                        }
+                    }
+                }
+                areaList.add(cList);
+            }
+
+
+            for (int k = 0; k < areaList.size(); k++) {
+                if (k==0){
+                    System.out.println("[");
+                }
+                List<List<AreaInfoBean>> p = areaList.get(k);
+                System.out.println("\t{");
+                for (int j = 0; j < p.size(); j++) {
+                    List<AreaInfoBean> c = p.get(j);
+                    for (int i = 0; i < c.size(); i++) {
+                        AreaInfoBean a = c.get(i);
+                        if (j==0 && i == 0){
+                            System.out.println("\t\t\"province\":" + a.getProvince() + ",");
+                            System.out.println("\t\t\"city\":[");
+                        }
+
+                        if (i == 0) {
+                            System.out.println("\t\t\t{");
+                            System.out.println("\t\t\t\t\"name\":" + a.getCity() + ",");
+                            System.out.println("\t\t\t\t\"area\":[");
+                        }
+                        System.out.println("\t\t\t\t\t"+a.jsonData()+",");
+                        if (i == c.size() - 1) {
+                            System.out.println("\t\t\t\t]");
+                            System.out.println("\t\t\t}");
+                        }
+                        if (i == c.size() - 1 && j == p.size()-1){
+                            System.out.println("\t\t]");
+                        }
+                    }
                 }
 
-                System.out.println("---------");
+
+                if (k == areaList.size()-1){
+                    System.out.println("\t}\n]");
+                }else {
+                    System.out.println("\t},");
+                }
             }
 
 

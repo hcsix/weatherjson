@@ -90,4 +90,11 @@ public class AreaInfoBean {
                 ", id=" + id +
                 '}';
     }
+
+
+    public String jsonData(){
+        return area="{name=\'" + area + '\'' +
+                ", id=" + id +"}";
+    }
+
 }
