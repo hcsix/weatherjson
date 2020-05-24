@@ -131,7 +131,7 @@ public class AreaUtil {
                         System.out.println("\t\t\t\t\t"+a.jsonData()+",");
                         if (i == c.size() - 1) {
                             System.out.println("\t\t\t\t]");
-                            System.out.println("\t\t\t}");
+                            System.out.println("\t\t\t},");
                         }
                         if (i == c.size() - 1 && j == p.size()-1){
                             System.out.println("\t\t]");
